@@ -25,13 +25,13 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
             <Link 
               to="/shop" 
-              className="btn-minimal bg-white text-wine-DEFAULT hover:bg-wine-DEFAULT hover:text-white"
+              className="btn-minimal bg-white text-wine-DEFAULT hover:bg-black hover:text-white"
             >
               Explora la colección
             </Link>
             <Link 
               to="/about" 
-              className="btn-minimal border border-white"
+              className="btn-minimal border border-white hover:bg-white hover:text-black"
             >
               Lee nuestra historia
             </Link>
