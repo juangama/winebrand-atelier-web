@@ -23,7 +23,7 @@ const Header = () => {
         {/* Mobile menu button */}
         <div className="lg:hidden">
           <button 
-            onClick={() => setMenuOpen(true)} 
+            onClick={() => setMenuOpen(!menuOpen)} 
             className="p-2"
             aria-label="Open menu"
           >
@@ -71,7 +71,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-wine-DEFAULT bg-opacity-95 z-50 flex flex-col p-6 sm:p-10 lg:hidden animate-fade-in">
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col p-6 sm:p-10 lg:hidden animate-fade-in">
           <div className="flex justify-end">
             <button 
               onClick={() => setMenuOpen(false)} 
@@ -109,27 +109,6 @@ const Header = () => {
               onClick={() => setMenuOpen(false)}
             >
               About
-            </Link>
-            <Link 
-              to="/stores" 
-              className="text-lg sm:text-xl text-white uppercase tracking-widest hover:opacity-70 transition-opacity"
-              onClick={() => setMenuOpen(false)}
-            >
-              Stores
-            </Link>
-            <Link 
-              to="/cafe" 
-              className="text-lg sm:text-xl text-white uppercase tracking-widest hover:opacity-70 transition-opacity"
-              onClick={() => setMenuOpen(false)}
-            >
-              Café
-            </Link>
-            <Link 
-              to="/art" 
-              className="text-lg sm:text-xl text-white uppercase tracking-widest hover:opacity-70 transition-opacity"
-              onClick={() => setMenuOpen(false)}
-            >
-              Art
             </Link>
           </nav>
         </div>

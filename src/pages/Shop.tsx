@@ -1,137 +1,114 @@
-
 import { useState } from 'react';
-import Layout from './Layout';
-import ProductCard from '../components/ui/ProductCard';
-
-// Sample categories and products
-const categories = ['Todo', 'Sudaderas', 'Camisetas', 'Accesorios'];
-
-const allProducts = [
-  {
-    id: '1',
-    name: 'Sudadera Logo Crema',
-    price: '$79.900 COP',
-    image: '/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png',
-    category: 'Sudaderas'
-  },
-  {
-    id: '2',
-    name: 'Sudadera Logo Negro',
-    price: '$79.900 COP',
-    image: '/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png',
-    category: 'Sudaderas'
-  },
-  {
-    id: '3',
-    name: 'Camiseta Cosecha Negro',
-    price: '$59.900 COP',
-    image: '/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png',
-    category: 'Camisetas'
-  },
-  {
-    id: '4',
-    name: 'Camiseta Estándar Negro',
-    price: '$49.900 COP',
-    image: '/lovable-uploads/68a24d84-4ea0-4014-a8a6-94bff79b56c7.png',
-    category: 'Camisetas'
-  },
-  // Additional products
-  {
-    id: '5',
-    name: 'Gorra Logo Negro',
-    price: '$45.900 COP',
-    image: '/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png',
-    category: 'Accesorios'
-  },
-  {
-    id: '6',
-    name: 'Sudadera Estampada Azul',
-    price: '$89.900 COP',
-    image: '/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png',
-    category: 'Sudaderas'
-  },
-];
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
-  const [activeCategory, setActiveCategory] = useState('Todo');
-  const [sortBy, setSortBy] = useState('newest');
-
-  // Filter products based on active category
-  const filteredProducts = activeCategory === 'Todo' 
-    ? allProducts 
-    : allProducts.filter(product => product.category === activeCategory);
-
-  // Sort products based on selected option
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (sortBy === 'priceAsc') {
-      return parseFloat(a.price.replace(/[^\d.-]/g, '')) - parseFloat(b.price.replace(/[^\d.-]/g, ''));
-    } else if (sortBy === 'priceDesc') {
-      return parseFloat(b.price.replace(/[^\d.-]/g, '')) - parseFloat(a.price.replace(/[^\d.-]/g, ''));
+  const [products, setProducts] = useState([
+    {
+      id: '1',
+      name: 'Camiseta Clásica',
+      price: '25.00',
+      image: '/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png',
+      category: 'Camisetas'
+    },
+    {
+      id: '2',
+      name: 'Pantalón Vaquero',
+      price: '59.99',
+      image: '/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png',
+      category: 'Pantalones'
+    },
+    {
+      id: '3',
+      name: 'Chaqueta de Cuero',
+      price: '120.00',
+      image: '/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png',
+      category: 'Chaquetas'
+    },
+    {
+      id: '4',
+      name: 'Vestido de Verano',
+      price: '45.50',
+      image: '/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png',
+      category: 'Vestidos'
+    },
+    {
+      id: '5',
+      name: 'Zapatillas Deportivas',
+      price: '79.99',
+      image: '/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png',
+      category: 'Calzado'
+    },
+    {
+      id: '6',
+      name: 'Bolso de Mano',
+      price: '35.00',
+      image: '/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png',
+      category: 'Accesorios'
     }
-    // Default to newest
-    return 0;
-  });
+  ]);
+
+  const addToCart = (product: any) => {
+    alert(`Añadido al carrito: ${product.name}`);
+  };
 
   return (
-    <Layout>
-      <div className="pt-24 pb-16">
-        <div className="editorial-container">
-          <h1 className="text-4xl font-serif mb-12 text-center">Colección</h1>
-          
-          {/* Category filter */}
-          <div className="mb-10 flex justify-center">
-            <div className="border-b border-gray-200 w-full max-w-3xl">
-              <ul className="flex flex-wrap justify-center -mb-px text-sm">
-                {categories.map((category) => (
-                  <li key={category} className="mr-8 last:mr-0">
-                    <button
-                      onClick={() => setActiveCategory(category)}
-                      className={`inline-block py-4 px-2 ${
-                        activeCategory === category 
-                          ? 'border-b-2 border-wine-DEFAULT font-medium' 
-                          : 'border-b-2 border-transparent text-wine-gray hover:text-wine-DEFAULT'
-                      } transition-colors`}
-                    >
-                      {category}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          
-          {/* Sort and filter controls */}
-          <div className="flex justify-end mb-8">
-            <div className="flex items-center">
-              <span className="text-sm text-wine-gray mr-2">Ordenar por:</span>
-              <select 
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="text-sm py-1 px-3 border border-gray-200 rounded bg-transparent focus:outline-none"
-              >
-                <option value="newest">Más reciente</option>
-                <option value="priceAsc">Precio: menor a mayor</option>
-                <option value="priceDesc">Precio: mayor a menor</option>
-              </select>
-            </div>
-          </div>
-          
-          {/* Products grid */}
-          <div className="editorial-grid">
-            {sortedProducts.map((product) => (
-              <ProductCard 
-                key={product.id} 
-                id={product.id}
-                name={product.name}
-                price={product.price}
-                image={product.image}
-                category={product.category}
-              />
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif mb-6 text-gray-900">
+            Shop
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Descubre nuestra colección de prendas únicas, diseñadas con alma y propósito.
+          </p>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            {products.map((product) => (
+              <div key={product.id} className="group">
+                <Link to={`/products/${product.id}`}>
+                  <div className="overflow-hidden mb-4">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-80 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-wider text-gray-500">
+                    {product.category}
+                  </p>
+                  
+                  <Link to={`/products/${product.id}`}>
+                    <h3 className="text-lg sm:text-xl font-serif text-gray-900 group-hover:text-gray-600 transition-colors">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  
+                  <p className="text-gray-600">
+                    ${product.price}
+                  </p>
+                  
+                  <button 
+                    onClick={() => addToCart(product)}
+                    className="mt-3 w-full bg-black text-white py-2 px-4 hover:bg-gray-800 transition-colors duration-300 uppercase text-sm tracking-wider"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
-    </Layout>
+      </section>
+    </div>
   );
 };
 

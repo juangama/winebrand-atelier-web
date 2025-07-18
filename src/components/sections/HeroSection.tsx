@@ -1,44 +1,42 @@
 
-import { Link } from 'react-router-dom';
-
 const HeroSection = () => {
   return (
-    <div className="relative h-screen">
-      {/* Hero image - showing a winter scene with WINEBRAND apparel */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/lovable-uploads/68a24d84-4ea0-4014-a8a6-94bff79b56c7.png"
-          alt="Person in WINEBRAND apparel in snow"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      </div>
-
-      {/* Hero content */}
-      <div className="relative z-10 flex flex-col justify-end h-full pb-16 sm:pb-20 px-4 sm:px-6 md:px-16 text-white">
-        <div className="max-w-xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-6 sm:mb-8 leading-tight">
-            Cuando todo suena igual, elegimos sonar distinto.
-          </h2>
-          
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6">
-            <Link 
-              to="/shop" 
-              className="btn-minimal bg-white text-wine-DEFAULT hover:bg-black hover:text-white transition-colors duration-300 text-center"
-            >
-              Explora la colección
-            </Link>
-            <Link 
-              to="/about" 
-              className="btn-minimal border border-white hover:bg-white hover:text-black transition-colors duration-300 text-center"
-            >
-              Lee nuestra historia
-            </Link>
-          </div>
+    <section className="relative min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>
+      
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/lovable-uploads/68a24d84-4ea0-4014-a8a6-94bff79b56c7.png')"
+        }}
+      />
+      
+      <div className="relative z-20 text-center text-white px-4 sm:px-6 max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-6 sm:mb-8 leading-tight">
+          Cuando todo suena igual,<br />
+          elegimos sonar distinto.
+        </h1>
+        
+        <p className="text-lg sm:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto opacity-90 leading-relaxed">
+          Una camiseta bien hecha dice más que mil frases vacías.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+          <a 
+            href="/shop" 
+            className="btn-minimal border border-white text-white hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto text-center"
+          >
+            Explora la colección
+          </a>
+          <a 
+            href="/about" 
+            className="btn-minimal border border-white text-white hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto text-center"
+          >
+            Lee nuestra historia
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

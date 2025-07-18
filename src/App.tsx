@@ -1,39 +1,42 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Shop from "./pages/Shop";
-import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import About from "./pages/About";
-import Lookbook from "./pages/Lookbook";
-import Community from "./pages/Community";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from '@/components/ui/sonner';
+
+import Layout from './pages/Layout';
+import Index from './pages/Index';
+import Shop from './pages/Shop';
+import Lookbook from './pages/Lookbook';
+import News from './pages/News';
+import About from './pages/About';
+import Community from './pages/Community';
+import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
+
+import './App.css';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/lookbook" element={<Lookbook />} />
-          <Route path="/products/:productId" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout><Index /></Layout>} />
+          <Route path="/shop" element={<Layout><Shop /></Layout>} />
+          <Route path="/lookbook" element={<Layout><Lookbook /></Layout>} />
+          <Route path="/news" element={<Layout><News /></Layout>} />
+          <Route path="/about" element={<Layout><About /></Layout>} />
+          <Route path="/community" element={<Layout><Community /></Layout>} />
+          <Route path="/products/:id" element={<Layout><ProductDetail /></Layout>} />
+          <Route path="/cart" element={<Layout><Cart /></Layout>} />
+          <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
+        <Toaster />
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </QueryClientProvider>
+  );
+}
 
 export default App;
