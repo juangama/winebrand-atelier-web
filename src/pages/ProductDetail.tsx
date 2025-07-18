@@ -1,47 +1,110 @@
-
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from './Layout';
 import { ArrowLeft, Minus, Plus, ShoppingCart } from 'lucide-react';
 
-// Mock product data - in a real app, this would come from an API
+// Mock product data que coincide con los productos de Shop
 const products = [
   {
     id: '1',
-    name: 'Sudadera Logo Crema',
-    price: '$79.900 COP',
-    images: ['/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png'],
-    description: 'Nuestra sudadera insignia, confeccionada en algodón 100% orgánico con un ajuste relajado. El logotipo WINEBRAND está bordado en el pecho para un acabado limpio y duradero.',
+    name: 'Camiseta Clásica',
+    price: '$25.00',
+    images: ['/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png'],
+    description: 'Camiseta clásica confeccionada en algodón 100% orgánico con un ajuste cómodo y duradero.',
     details: [
       'Algodón orgánico certificado',
-      'Hecho en Colombia',
-      'Ajuste holgado',
+      'Hecho en Colombia', 
+      'Ajuste clásico',
       'Lavado frío, secado natural'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    colors: ['Crema'],
-    category: 'Sudaderas'
+    colors: ['Blanco'],
+    category: 'Camisetas'
   },
   {
     id: '2',
-    name: 'Sudadera Logo Negro',
-    price: '$79.900 COP',
-    images: ['/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png'],
-    description: 'Nuestra sudadera insignia en color negro, confeccionada en algodón 100% orgánico con un ajuste relajado. El logotipo WINEBRAND está bordado en el pecho para un acabado limpio y duradero.',
+    name: 'Pantalón Vaquero',
+    price: '$59.99',
+    images: ['/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png'],
+    description: 'Pantalón vaquero de corte clásico, confeccionado con denim de alta calidad para máxima durabilidad.',
     details: [
-      'Algodón orgánico certificado',
-      'Hecho en Colombia',
-      'Ajuste holgado',
-      'Lavado frío, secado natural'
+      'Denim 100% algodón',
+      'Corte clásico',
+      'Cinco bolsillos',
+      'Lavado a la piedra'
+    ],
+    sizes: ['28', '30', '32', '34', '36'],
+    colors: ['Azul'],
+    category: 'Pantalones'
+  },
+  {
+    id: '3',
+    name: 'Chaqueta de Cuero',
+    price: '$120.00',
+    images: ['/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png'],
+    description: 'Chaqueta de cuero genuino con acabado premium y forro interior suave.',
+    details: [
+      'Cuero genuino',
+      'Forro interior suave',
+      'Cremalleras YKK',
+      'Cuidado profesional recomendado'
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Negro'],
+    category: 'Chaquetas'
+  },
+  {
+    id: '4',
+    name: 'Vestido de Verano',
+    price: '$45.50',
+    images: ['/lovable-uploads/2a2ab176-4e73-4d93-80db-ff6421e8ec98.png'],
+    description: 'Vestido ligero y fresco, perfecto para los días de verano con un diseño elegante.',
+    details: [
+      'Algodón ligero',
+      'Diseño fluido',
+      'Manga corta',
+      'Lavado a máquina'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    colors: ['Negro'],
-    category: 'Sudaderas'
+    colors: ['Blanco'],
+    category: 'Vestidos'
   },
+  {
+    id: '5',
+    name: 'Zapatillas Deportivas',
+    price: '$79.99',
+    images: ['/lovable-uploads/e92f1fbd-6467-4617-a7f5-95406df6dd4f.png'],
+    description: 'Zapatillas deportivas con tecnología de amortiguación avanzada para máximo confort.',
+    details: [
+      'Suela de goma antideslizante',
+      'Amortiguación avanzada',
+      'Materiales transpirables',
+      'Uso deportivo y casual'
+    ],
+    sizes: ['38', '39', '40', '41', '42', '43'],
+    colors: ['Blanco'],
+    category: 'Calzado'
+  },
+  {
+    id: '6',
+    name: 'Bolso de Mano',
+    price: '$35.00',
+    images: ['/lovable-uploads/1166ebfa-17d5-4562-a85d-f0420e0dc857.png'],
+    description: 'Bolso de mano elegante con múltiples compartimentos y acabados de calidad.',
+    details: [
+      'Piel sintética premium',
+      'Múltiples compartimentos',
+      'Asa ajustable',
+      'Cierre con cremallera'
+    ],
+    sizes: ['Único'],
+    colors: ['Negro'],
+    category: 'Accesorios'
+  }
 ];
 
 const ProductDetail = () => {
-  const { productId } = useParams();
+  const { id: productId } = useParams();
   const product = products.find(p => p.id === productId);
   
   const [selectedSize, setSelectedSize] = useState('');
@@ -83,9 +146,6 @@ const ProductDetail = () => {
       quantity
     });
     
-    // Here you would integrate with your cart state management
-    // For example: dispatch(addToCart({ id, name, price, size, quantity }))
-    
     alert('Producto añadido al carrito');
   };
 
@@ -95,16 +155,16 @@ const ProductDetail = () => {
         <div className="editorial-container">
           {/* Breadcrumbs */}
           <nav className="mb-8">
-            <ol className="flex text-sm text-wine-gray">
+            <ol className="flex text-sm text-gray-600">
               <li className="after:content-['/'] after:mx-2">
-                <Link to="/shop" className="hover:text-wine-DEFAULT">Tienda</Link>
+                <Link to="/shop" className="hover:text-black">Tienda</Link>
               </li>
               <li className="after:content-['/'] after:mx-2">
-                <Link to={`/shop?category=${product.category}`} className="hover:text-wine-DEFAULT">
+                <Link to={`/shop?category=${product.category}`} className="hover:text-black">
                   {product.category}
                 </Link>
               </li>
-              <li className="font-medium text-wine-DEFAULT">{product.name}</li>
+              <li className="font-medium text-black">{product.name}</li>
             </ol>
           </nav>
           
@@ -125,7 +185,7 @@ const ProductDetail = () => {
                     <button 
                       key={idx}
                       onClick={() => setActiveImage(idx)}
-                      className={`border-2 ${activeImage === idx ? 'border-wine-DEFAULT' : 'border-transparent'}`}
+                      className={`border-2 ${activeImage === idx ? 'border-black' : 'border-transparent'}`}
                     >
                       <img src={image} alt={`${product.name} view ${idx + 1}`} className="w-full h-auto" />
                     </button>
@@ -151,8 +211,8 @@ const ProductDetail = () => {
                         onClick={() => setSelectedSize(size)}
                         className={`w-12 h-12 flex items-center justify-center text-sm border ${
                           selectedSize === size 
-                            ? 'border-wine-DEFAULT bg-wine-DEFAULT text-white' 
-                            : 'border-gray-300 hover:border-wine-DEFAULT'
+                            ? 'border-black bg-black text-white' 
+                            : 'border-gray-300 hover:border-black'
                         }`}
                       >
                         {size}
@@ -184,7 +244,7 @@ const ProductDetail = () => {
                 
                 <button 
                   onClick={addToCart}
-                  className="w-full py-4 bg-wine-DEFAULT text-white flex items-center justify-center uppercase tracking-wider hover:bg-black transition-colors mb-6"
+                  className="w-full py-4 bg-black text-white flex items-center justify-center uppercase tracking-wider hover:bg-gray-800 transition-colors mb-6"
                 >
                   <ShoppingCart className="mr-2" size={18} />
                   Añadir al carrito
@@ -204,7 +264,7 @@ const ProductDetail = () => {
           
           {/* Return to shop */}
           <div className="text-center">
-            <Link to="/shop" className="inline-flex items-center text-sm uppercase tracking-wider hover:text-wine-gray transition-colors">
+            <Link to="/shop" className="inline-flex items-center text-sm uppercase tracking-wider hover:text-gray-600 transition-colors">
               <ArrowLeft size={16} className="mr-2" />
               Continuar comprando
             </Link>

@@ -18,21 +18,21 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="py-4 px-6 w-full fixed top-0 z-50 bg-white border-b border-gray-100 transition-all duration-300">
-      <div className="flex items-center justify-between">
+    <header className="py-3 px-3 sm:px-4 lg:px-6 w-full fixed top-0 z-50 bg-white border-b border-gray-100 transition-all duration-300">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Mobile menu button */}
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center">
           <button 
             onClick={() => setMenuOpen(!menuOpen)} 
-            className="p-2"
+            className="p-2 -ml-2"
             aria-label="Open menu"
           >
-            <Menu size={20} />
+            <Menu size={18} />
           </button>
         </div>
 
         {/* Desktop navigation */}
-        <nav className="hidden lg:flex items-center space-x-10">
+        <nav className="hidden lg:flex items-center space-x-8">
           <Link to="/shop" className="header-link">Shop</Link>
           <Link to="/lookbook" className="header-link">Lookbook</Link>
           <Link to="/about" className="header-link">About</Link>
@@ -40,15 +40,15 @@ const Header = () => {
 
         {/* Logo with transition */}
         <Link to="/" className="flex-1 lg:flex-none text-center">
-          <div className="relative h-8 flex items-center justify-center">
+          <div className="relative h-6 sm:h-8 flex items-center justify-center">
             {scrolled ? (
               <img 
                 src="/lovable-uploads/eb1e642a-2774-4441-8dcf-951196bfe5d7.png" 
                 alt="WINEBRAND Logo" 
-                className="h-8 w-auto transition-opacity duration-300"
+                className="h-6 sm:h-8 w-auto transition-opacity duration-300"
               />
             ) : (
-              <h1 className="text-xl md:text-2xl font-serif tracking-wider transition-opacity duration-300">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-serif tracking-wider transition-opacity duration-300">
                 WINEBRAND
               </h1>
             )}
@@ -56,15 +56,15 @@ const Header = () => {
         </Link>
 
         {/* Right side icons */}
-        <div className="flex items-center space-x-4">
-          <button className="p-1" aria-label="Search">
-            <Search size={18} />
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          <button className="p-2" aria-label="Search">
+            <Search size={16} className="sm:w-[18px] sm:h-[18px]" />
           </button>
-          <Link to="/account" className="p-1">
-            <User size={18} />
+          <Link to="/account" className="p-2">
+            <User size={16} className="sm:w-[18px] sm:h-[18px]" />
           </Link>
-          <Link to="/cart" className="p-1">
-            <ShoppingBag size={18} />
+          <Link to="/cart" className="p-2">
+            <ShoppingBag size={16} className="sm:w-[18px] sm:h-[18px]" />
           </Link>
         </div>
       </div>

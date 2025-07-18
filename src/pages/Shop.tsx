@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -47,61 +48,50 @@ const Shop = () => {
     }
   ]);
 
-  const addToCart = (product: any) => {
-    alert(`Añadido al carrito: ${product.name}`);
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif mb-6 text-gray-900">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-4 text-gray-900">
             Shop
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Descubre nuestra colección de prendas únicas, diseñadas con alma y propósito.
           </p>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {products.map((product) => (
               <div key={product.id} className="group">
                 <Link to={`/products/${product.id}`}>
-                  <div className="overflow-hidden mb-4">
+                  <div className="overflow-hidden mb-3">
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-80 sm:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                 </Link>
                 
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <p className="text-xs uppercase tracking-wider text-gray-500">
                     {product.category}
                   </p>
                   
                   <Link to={`/products/${product.id}`}>
-                    <h3 className="text-lg sm:text-xl font-serif text-gray-900 group-hover:text-gray-600 transition-colors">
+                    <h3 className="text-sm sm:text-base font-serif text-gray-900 group-hover:text-gray-600 transition-colors">
                       {product.name}
                     </h3>
                   </Link>
                   
-                  <p className="text-gray-600">
+                  <p className="text-sm text-gray-600">
                     ${product.price}
                   </p>
-                  
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="mt-3 w-full bg-black text-white py-2 px-4 hover:bg-gray-800 transition-colors duration-300 uppercase text-sm tracking-wider"
-                  >
-                    Añadir al carrito
-                  </button>
                 </div>
               </div>
             ))}
