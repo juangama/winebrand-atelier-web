@@ -18,16 +18,16 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="py-3 px-3 sm:px-4 lg:px-6 w-full fixed top-0 z-50 bg-white border-b border-gray-100 transition-all duration-300">
+    <header className="py-2 px-2 sm:px-4 lg:px-6 w-full fixed top-0 z-50 bg-white border-b border-gray-100 transition-all duration-300">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Mobile menu button */}
         <div className="lg:hidden flex items-center">
           <button 
             onClick={() => setMenuOpen(!menuOpen)} 
-            className="p-2 -ml-2"
+            className="p-1"
             aria-label="Open menu"
           >
-            <Menu size={18} />
+            <Menu size={16} />
           </button>
         </div>
 
@@ -56,15 +56,15 @@ const Header = () => {
         </Link>
 
         {/* Right side icons */}
-        <div className="flex items-center space-x-2 sm:space-x-3">
-          <button className="p-2" aria-label="Search">
-            <Search size={16} className="sm:w-[18px] sm:h-[18px]" />
+        <div className="flex items-center space-x-1">
+          <button className="p-1" aria-label="Search">
+            <Search size={16} />
           </button>
-          <Link to="/account" className="p-2">
-            <User size={16} className="sm:w-[18px] sm:h-[18px]" />
+          <Link to="/account" className="p-1">
+            <User size={16} />
           </Link>
-          <Link to="/cart" className="p-2">
-            <ShoppingBag size={16} className="sm:w-[18px] sm:h-[18px]" />
+          <Link to="/cart" className="p-1">
+            <ShoppingBag size={16} />
           </Link>
         </div>
       </div>
