@@ -10,6 +10,7 @@ import Lookbook from './pages/Lookbook';
 import News from './pages/News';
 import About from './pages/About';
 import Community from './pages/Community';
+import JoinCommunity from './pages/JoinCommunity';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/news" element={<Layout><News /></Layout>} />
           <Route path="/about" element={<Layout><About /></Layout>} />
           <Route path="/community" element={<Layout><Community /></Layout>} />
+          <Route path="/join-community" element={<Layout><JoinCommunity /></Layout>} />
           <Route path="/products/:id" element={<Layout><ProductDetail /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
           <Route path="*" element={<Layout><NotFound /></Layout>} />

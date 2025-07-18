@@ -71,6 +71,9 @@ const Header = () => {
             <Link to="/about" className="text-lg sm:text-xl text-white uppercase tracking-widest hover:opacity-70 transition-opacity" onClick={() => setMenuOpen(false)}>
               About
             </Link>
+            <Link to="/join-community" className="text-lg sm:text-xl text-white uppercase tracking-widest hover:opacity-70 transition-opacity" onClick={() => setMenuOpen(false)}>
+              Join to Our Community
+            </Link>
           </nav>
         </div>}
     </header>;
