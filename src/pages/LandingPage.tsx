@@ -1,11 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-
   const handleEnter = () => {
-    navigate('/home');
+    window.location.href = '/home';
   };
 
   return (
