@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/sonner';
 
 import Layout from './pages/Layout';
+import LandingPage from './pages/LandingPage';
 import Index from './pages/Index';
 import Shop from './pages/Shop';
 import Lookbook from './pages/Lookbook';
@@ -24,7 +25,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout><Index /></Layout>} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Layout><Index /></Layout>} />
           <Route path="/shop" element={<Layout><Shop /></Layout>} />
           <Route path="/lookbook" element={<Layout><Lookbook /></Layout>} />
           <Route path="/news" element={<Layout><News /></Layout>} />
