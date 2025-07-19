@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Search, ShoppingBag, User, X } from 'lucide-react';
+import { Menu, ShoppingBag, X } from 'lucide-react';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -38,14 +38,8 @@ const Header = () => {
         </Link>
 
         {/* Right side icons */}
-        <div className="flex items-center space-x-1">
-          <button aria-label="Search" className="p-1 px-[28px] mx-0">
-            <Search size={16} />
-          </button>
-          <Link to="/account" className="p-1">
-            <User size={16} className="px-0 mx-[47px]" />
-          </Link>
-          <Link to="/cart" className="p-1 mx-[28px]">
+        <div className="flex items-center">
+          <Link to="/cart" className="p-1">
             <ShoppingBag size={16} />
           </Link>
         </div>
