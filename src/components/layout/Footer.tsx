@@ -15,7 +15,7 @@ const Footer = () => {
               <li><Link to="/shop" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Shop</Link></li>
               <li><Link to="/lookbook" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Lookbook</Link></li>
               <li><Link to="/about" className="text-sm opacity-80 hover:opacity-100 transition-opacity">About</Link></li>
-              <li><Link to="/contact" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Contact</Link></li>
+              <li><Link to="/news" className="text-sm opacity-80 hover:opacity-100 transition-opacity">News</Link></li>
             </ul>
           </div>
 
@@ -23,10 +23,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg mb-6 font-serif">Legal</h4>
             <ul className="space-y-3">
-              <li><Link to="/terms" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Terms & Conditions</Link></li>
-              <li><Link to="/privacy" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Privacy Policy</Link></li>
-              <li><Link to="/shipping" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Shipping & Returns</Link></li>
-              <li><Link to="/faq" className="text-sm opacity-80 hover:opacity-100 transition-opacity">FAQ</Link></li>
+              <li><Link to="/about" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Terms & Conditions</Link></li>
+              <li><Link to="/about" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Privacy Policy</Link></li>
+              <li><Link to="/about" className="text-sm opacity-80 hover:opacity-100 transition-opacity">Shipping & Returns</Link></li>
+              <li><Link to="/about" className="text-sm opacity-80 hover:opacity-100 transition-opacity">FAQ</Link></li>
             </ul>
           </div>
 

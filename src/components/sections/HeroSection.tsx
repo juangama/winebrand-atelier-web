@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gray-50">
@@ -22,18 +24,18 @@ const HeroSection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-          <a 
-            href="/shop" 
+          <Link 
+            to="/shop" 
             className="btn-minimal border border-white text-white hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto text-center"
           >
             Explora la colección
-          </a>
-          <a 
-            href="/about" 
+          </Link>
+          <Link 
+            to="/about" 
             className="btn-minimal border border-white text-white hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto text-center"
           >
             Lee nuestra historia
-          </a>
+          </Link>
         </div>
       </div>
     </section>

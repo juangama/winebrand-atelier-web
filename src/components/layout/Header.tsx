@@ -29,18 +29,18 @@ const Header = () => {
         </nav>
 
         {/* Logo with transition */}
-        <Link to="/" className="flex-1 lg:flex-none text-center">
+        <Link to="/home" className="flex-1 lg:flex-none text-center">
           <div className="relative h-6 sm:h-8 flex items-center justify-center">
-            {scrolled ? <img src="/lovable-uploads/eb1e642a-2774-4441-8dcf-951196bfe5d7.png" alt="WINEBRAND Logo" className="h-6 sm:h-8 w-auto transition-opacity duration-300" /> : <h1 className="text-lg sm:text-xl md:text-2xl font-serif tracking-wider transition-opacity duration-300 px-[43px] mx-0">
+            {scrolled ? <img src="/lovable-uploads/eb1e642a-2774-4441-8dcf-951196bfe5d7.png" alt="WINEBRAND Logo" className="h-6 sm:h-8 w-auto transition-opacity duration-300" /> : <h1 className="text-lg sm:text-xl md:text-2xl font-serif tracking-wider transition-opacity duration-300">
                 WINEBRAND
               </h1>}
           </div>
         </Link>
 
-        {/* Right side icons */}
-        <div className="flex items-center">
-          <Link to="/cart" className="p-1">
-            <ShoppingBag size={16} />
+        {/* Right side icons - Balanced spacing */}
+        <div className="flex items-center lg:w-auto w-auto">
+          <Link to="/cart" className="p-2 hover:opacity-70 transition-opacity">
+            <ShoppingBag size={18} />
           </Link>
         </div>
       </div>
