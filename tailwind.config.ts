@@ -58,10 +58,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				wine: {
-					DEFAULT: '#1a1a1a', // Almost black
-					light: '#f9f9f9', // Almost white
-					cream: '#f5f5eb', // Cream color
-					gray: '#8a8a8a', // Medium gray
+					DEFAULT: 'hsl(0 0% 10%)', // Almost black in HSL
+					light: 'hsl(0 0% 98%)', // Almost white in HSL
+					cream: 'hsl(50 25% 93%)', // Cream color in HSL
+					gray: 'hsl(0 0% 54%)', // Medium gray in HSL
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
